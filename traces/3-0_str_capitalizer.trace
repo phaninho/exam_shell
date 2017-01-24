@@ -1,0 +1,74 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r8p2.42.fr
+Darwin 15.6.0 x86_64
+$> date
+Tue Jan 24 16:39:27 CET 2017
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 8.0.0 (clang-800.0.42.1)
+Target: x86_64-apple-darwin15.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 8.0.0 (clang-800.0.42.1)
+Target: x86_64-apple-darwin15.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2017/c-exam-beginner/practice-exam_20170124/stmartin
+
+= Git history ==================================================================
+$> git -C /var/folders/9y/8f_7bsxj2_v5ndwmjmzn1p3r0000gq/T/tmp91QkyB/user log --pretty='%H - %an, %ad : %s'
+69699e1b2bed949c2bcb35e4b158b62b4813655f - Stephane MARTINS, Tue Jan 24 16:38:33 2017 +0100 : delete bin
+89909e01b6ae56bb3c69e4f185cea9f0d0b09d2d - Stephane MARTINS, Tue Jan 24 16:37:56 2017 +0100 : add str_cap
+e93c596b67c5b9ba856714599a049c5c9c54d14f - Stephane MARTINS, Tue Jan 24 15:35:29 2017 +0100 : add swap_bits
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/9y/8f_7bsxj2_v5ndwmjmzn1p3r0000gq/T/tmp91QkyB/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  799 Jan 24 16:39 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Jan 24 16:39 str_capitalizer
+drwxr-xr-x  3 deepthought  deepthought  102 Jan 24 16:39 swap_bits
+
+/var/folders/9y/8f_7bsxj2_v5ndwmjmzn1p3r0000gq/T/tmp91QkyB/user/str_capitalizer:
+total 8
+-rw-r--r--  1 deepthought  deepthought  999 Jan 24 16:39 str_capitalizer.c
+
+/var/folders/9y/8f_7bsxj2_v5ndwmjmzn1p3r0000gq/T/tmp91QkyB/user/swap_bits:
+total 8
+-rw-r--r--  1 deepthought  deepthought  84 Jan 24 16:39 swap_bits.c
+ 
+= str_capitalizer ==============================================================
+$> clang -Wextra -Wall -Werror str_capitalizer.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./t0jozuwcdv9teanauvvlw4u7 
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./o91qxs2p38vqdyeg7qv8ohyv 
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./hlwr584fs1rg6q9nfpa8ma50 "3IslLNQDVv"
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./hwlzs8mbm3y3scx6itrmghlh " YdKQpgcvVaJhBmL<oBWpaCn6NfSvXwxb=bifjAp9y	Ms19Iq4WALlKtjxQa8oYmVxp2ebaW		>"
+$> diff -U 3 user_output_test4 test4.output | cat -e
+--- user_output_test4	2017-01-24 16:39:30.000000000 +0100$
++++ test4.output	2017-01-24 16:39:30.000000000 +0100$
+@@ -1 +1 @@$
+- ydkqpgcvvajhbml<obwpacn6nfsvxwxb=bifjap9y	Ms19iq4wallktjxqa8oymvxp2ebaw		>$
++ Ydkqpgcvvajhbml<obwpacn6nfsvxwxb=bifjap9y	Ms19iq4wallktjxqa8oymvxp2ebaw		>$
+
+Diff KO :(
+Grade: 0
+
+= Final grade: 0 ===============================================================
