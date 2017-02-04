@@ -5,39 +5,40 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int		check_str(char c, char *str)
+int		check_double(char c, char * s2)
 {
 	int		i = 0;
-	while (str && str[i])
+	while (s2 && s2[i])
 	{
-		if (str[i] == c)
+		if (s2[i] == c)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int		check_double(char c, char *str, int len)
-{
-	int		i = 0;
-	while (str && str[i] && i < len)
-	{
-		if (str[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	inter(char *str, char *str2)
+int		check_str(char *str, char c, int len)
 {
 	int	i = 0;
 
-	while (str && str[i])
+	while (i < len)
 	{
-		if (!check_double(str[i], str, i))
-			if (check_str(str[i], str2))
-				ft_putchar(str[i]);
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	inter(char *s1, char *s2)
+{
+	int		i = 0;
+
+	while (s1 && s1[i])
+	{
+		if (!check_str(s1, s1[i], i))
+			if (check_double(s1[i], s2))
+				ft_putchar(s1[i]);
 		i++;
 	}
 }
@@ -46,8 +47,8 @@ int		main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		ft_putchar('\n');
-		return (0);
+		write (1, "\n", 1);
+		return (1);
 	}
 	inter(av[1], av[2]);
 	ft_putchar('\n');

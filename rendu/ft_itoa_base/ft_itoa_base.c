@@ -35,6 +35,8 @@ char		*ft_itoa_base(int value, int base)
 	int		tmp = value;
 	int		neg = 0;
 
+	if (base < 2 || base > 16)
+		return (NULL);
 	if (value == INT_MIN && base == 10)
 		return (ft_strdup("-2147483648"));
 	while (tmp >= base)
@@ -43,8 +45,11 @@ char		*ft_itoa_base(int value, int base)
 		i++;
 	}
 	if (value < 0 && base == 10)
+	{
+		i++;
 		neg++;
-	if (!(str = (char *)malloc(sizeof(char) * (neg + i + 1))))
+	}
+	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	str[i] = '\0';
 	while (i >= 0)
