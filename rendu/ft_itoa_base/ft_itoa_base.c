@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include<limits.h>
-//#include<stdio.h>
 
 int			ex(int nb)
 {
@@ -49,7 +48,7 @@ char		*ft_itoa_base(int value, int base)
 		i++;
 		neg++;
 	}
-	else if (value < 0)
+	if (value < 0)
 		value = -value;
 	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
@@ -65,8 +64,10 @@ char		*ft_itoa_base(int value, int base)
 	}
 	return (str);
 }
- /*int		main()
+/*
+#include<stdio.h>
+ int		main()
 {
-	printf("%s\n",ft_itoa_base(23, 16));
+	printf("%s\n",ft_itoa_base(INT_MIN + 1, 10));
 	return (0);
 }*/
