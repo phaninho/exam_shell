@@ -1,43 +1,22 @@
 void		sort_int_tab(int *tab, unsigned int size)
 {
-	unsigned int		i = 1;
-	unsigned int		j;
-	int		nb;
+	unsigned int	i = 0;
+	unsigned int	j;
+	int				tmp;
 
-	while (i <= size)
+	while (i < size)
 	{
-		j = 0;
-		while (j <= i)
+		j = i + 1;
+		while (j < size)
 		{
-			if (tab[j] >= tab[i])
+			if (tab[i] > tab[j])
 			{
-				nb = tab[i];
+				tmp = tab[i];
 				tab[i] = tab[j];
-				tab[j] = nb;
+				tab[j] = tmp;
 			}
 			j++;
 		}
 		i++;
 	}
 }
-
-/*#include<stdio.h>
-#include<stdlib.h>
-int	main(int ac, char **av)
-{
-	int *tab;
-	int i = 1;
-	tab = (int *)malloc(sizeof(int) * ac - 1);
-	
-	while (av && av[i])
-	{
-		tab[i - 1] = atoi(av[i]);
-		i++;
-	}
-	i = 0;
-	sort_int_tab(tab, ac - 1);
-	while (i < ac - 1)
-		printf("%d ", tab[i++]);
-	printf("\n");
-	return (0);
-}*/
